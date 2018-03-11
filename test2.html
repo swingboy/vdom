@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script src="listdiff2副本.js"></script>
+
+<!-- <script src="listdiff2副本 2.js"></script> -->
+
+<script>
+    //start
+    // err ??? TODO
+    // var before = [{id: 'a'}, {id: 'b'}, {id: 'c'}, {id: 'd'}, {id: 'e'}];
+    // var after = [{id: 'c'}, {id:'b'},{id: 'a'}];
+    // var diffs = diff(before, after, 'id');    
+    // console.log(diffs);
+    // diffs.moves.forEach(function (move) {
+    //     if (move.type === 0) {
+    //         before.splice(move.index, 1) // type 0 is removing 
+    //     } else {
+    //         before.splice(move.index, 0, move.item) // type 1 is inserting 
+    //     }
+    // })
+    // console.log(before);
+    //end
+
+    //start
+    var oldList = [{id: "a"}, {id: "b"}, {id: "c"}, {id: "d"}, {id: "e"}]
+    // var newList = [{id: "c"}, {id: "a"}, {id: "b"}, {id: "e"}, {id: "f"}]
+    var newList = [{id: "c"}, {id: "b"}, {id: "a"}];
+    
+    var moves = diff(oldList, newList, "id")
+    
+    console.log('------------------------------------');
+    console.log(moves);
+    console.log('------------------------------------');
+    moves.moves.forEach(function(move) {
+    if (move.type === 0) {
+        oldList.splice(move.index, 1) // type 0 is removing 
+    } else {
+        oldList.splice(move.index, 0, move.item) // type 1 is inserting 
+    }
+    })
+    // oldList =  oldList.slice(0, newList.length);
+    console.log(oldList) 
+    //end
+
+
+    // var oldList = [{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}];
+    // var newList = [{id: 2}, {id: 3}, {id: 1},];
+
+    // var moves = diff(oldList, newList, "id");
+    
+    // console.log(moves);
+
+    // children 是源列表根据新列表返回移动或新增的数据。
+    // children = [
+    //     {id: 1},
+    //     {id: 2},
+    //     {id: 3},
+    //     null,
+    //     null,
+    //     null
+    // ]
+    // moves是源列表oldList根据新列表newList返回的操作，children为null的话，依次删除掉掉
+    // type = 0 是删除操作， type = 1 是新增操作
+    // moves = [
+    //     {type: 0, index:3},
+    //     {type: 0, index: 3},
+    //     {type: 0, index: 3},
+    //     {type: 0, index: 0},
+    //     {type: 1, index: 2, item: {id: 1}}
+    // ]
+    // moves.moves.forEach(function (move) {
+    //     if (move.type === 0) {
+    //         oldList.splice(move.index, 1) // type 0 is removing 
+    //     } else {
+    //         oldList.splice(move.index, 0, move.item) // type 1 is inserting 
+    //     }
+    // })
+    // console.log(oldList);
+</script>

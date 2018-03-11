@@ -1,0 +1,31 @@
+{
+  "name": "vdom",
+  "version": "0.0.1",
+  "description": "a virtual demo",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sck": "node server.js --env=dev",
+    "copy": "copyfiles --all ./src/favicon.ico './resources/**' './framework/**' ./dist",
+    "copy:dev": "copyfiles --all ./src/favicon.ico './resources/**' './framework/**' ./dist",
+    "pack": "webpack --env=dist",
+    "start": "npm run copy:dev & node server.js --env=dev",
+    "start:tpl": "npm run copy:dev & gulp watch & node server.js --env=dev"
+  },
+  "keywords": [
+    "virtual",
+    "dom",
+    "demostration"
+  ],
+  "author": "foio",
+  "license": "ISC",
+  "dependencies": {
+    "list-diff2": "^0.1.4"
+  },
+  "devDependencies": {
+    "webpack": "^3.0.0",
+    "open": "0.0.5",
+    "webpack-dev-server": "^1.12.0",
+    "webpack-manifest-plugin": "^1.3.1"
+  }
+}
